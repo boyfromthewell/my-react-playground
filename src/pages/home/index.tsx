@@ -2,13 +2,20 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Home = () => {
-	const categorys = [{ id: 1, value: "useDefferedValue Hook" }];
+	const categorys = [
+		{ id: 1, value: "useDefferedValue Hook" },
+		{ id: 2, value: "what is forwardRef" },
+	];
+
 	const navigate = useNavigate();
 
 	const goToCategory = (categoryId: number) => {
 		switch (categoryId) {
 			case 1:
 				navigate(`/useDefferedValue`);
+				break;
+			case 2:
+				navigate(`/forwardRef`);
 				break;
 		}
 	};
@@ -47,6 +54,7 @@ const ContentsSection = styled.section`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 `;
 
 const Category = styled.p`
