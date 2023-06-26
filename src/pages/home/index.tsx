@@ -5,6 +5,7 @@ const Home = () => {
 	const categorys = [
 		{ id: 1, value: "useDefferedValue Hook" },
 		{ id: 2, value: "what is forwardRef" },
+		{ id: 3, value: "what is ReactQuery" },
 	];
 
 	const navigate = useNavigate();
@@ -16,6 +17,9 @@ const Home = () => {
 				break;
 			case 2:
 				navigate(`/forwardRef`);
+				break;
+			case 3:
+				navigate(`/reactQuery`);
 				break;
 		}
 	};
