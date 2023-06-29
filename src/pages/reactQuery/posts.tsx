@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { instance as axios } from "../../api/config";
 
@@ -22,13 +22,23 @@ const Posts = ({ setPostId }: Props) => {
 	};
 
 	const { isLoading, error, data } = useQuery(["posts"], getPosts);
-	console.log(data);
+
+	const { mutate, isSuccess } = useMutation((post: any) => axios.post("/posts", { post }), {
+		onSuccess: () => queryClient.invalidateQueries(["posts"]),
+	});
 
 	if (isLoading) return <div>Loading...</div>;
 	if (error instanceof Error) return <div>{error.message}</div>;
 
 	return (
 		<div>
+			<button
+				onClick={() => /* 뮤테이트 호출 시 인자로 넘겨준 함수 실행 */ mutate({ userId: 1, body: "bar", title: "foo" })}
+			>
+				Add Post
+			</button>
+			{isSuccess ? <div>Todo added!</div> : null}
+
 			{data?.map((post: PostType) => (
 				<p key={post.id}>
 					<a
