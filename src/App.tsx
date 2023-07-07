@@ -6,6 +6,7 @@ import UseDefferredValue from "./pages/useDefferredValue";
 import ForwardRef from "./pages/forwardRef";
 import Portal from "./pages/portal";
 import ReactQuery from "./pages/reactQuery";
+import MobX from "./pages/mobX";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 					<Route path="/forwardRef" element={<ForwardRef />} />
 					<Route path="/reactQuery" element={<ReactQuery />} />
 					<Route path="/portal" element={<Portal />} />
+					<Route path="/mobX" element={<MobX />} />
 				</Routes>
 			</BrowserRouter>
 		</>
