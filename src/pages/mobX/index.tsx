@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import { TodoList } from "../../stores/todo";
 import useStore from "../../hooks/useStore";
+import TodoLists from "./todoLists";
+import styled from "styled-components";
+import TodoForm from "./todoForm";
+import Counter from "./counter";
 
 const MobX = observer(() => {
 	const [content, setContent] = useState("");
-	/* const { todoData, addTodo } = TodoList; */
-	const { TodoList } = useStore(); // 무슨 차이??
+	const { TodoList } = useStore();
 
-	console.log(TodoList);
-
-	const removeItem = (ix: any) => {
-		TodoList.removeTodo(ix);
+	const removeItem = (id: number) => {
+		TodoList.removeTodo(id);
 	};
 
 	const onSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		TodoList.addTodo(content);
+		setContent("");
 	};
 
 	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,21 +26,21 @@ const MobX = observer(() => {
 
 	return (
 		<>
-			<section>
+			<TodoListContainer>
 				{TodoList.todoData?.map((v) => (
-					<div key={v.id}>
-						<input type="checkbox" />
-						<span>{v.content}</span>
-						<span onClick={() => removeItem(v.id)}>x</span>
-					</div>
+					<TodoLists key={v.id} id={v.id} content={v.content} removeItem={removeItem} />
 				))}
-			</section>
-			<form onSubmit={onSubmit}>
-				<input onChange={onChange} />
-				<button>dddd</button>
-			</form>
+			</TodoListContainer>
+			<TodoForm onSubmit={onSubmit} onChange={onChange} content={content} />
+			<Counter />
 		</>
 	);
 });
 
 export default MobX;
+
+const TodoListContainer = styled.section`
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+`;

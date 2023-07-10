@@ -19,7 +19,6 @@ export const TodoList = observable<Todo>({
 	currentId: 0,
 
 	addTodo(content) {
-		console.log(this.todoData);
 		this.todoData.push({ id: this.currentId, content, checked: false });
 		this.currentId++;
 	},
