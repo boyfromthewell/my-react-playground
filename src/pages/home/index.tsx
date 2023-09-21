@@ -7,6 +7,8 @@ const Home = () => {
 		{ id: 2, value: "what is forwardRef" },
 		{ id: 3, value: "what is ReactQuery" },
 		{ id: 4, value: "MobX" },
+		{ id: 5, value: "Drag Scroll" },
+		{ id: 6, value: "Msw Test" },
 	];
 
 	const navigate = useNavigate();
@@ -24,6 +26,12 @@ const Home = () => {
 				break;
 			case 4:
 				navigate(`/mobX`);
+				break;
+			case 5:
+				navigate(`/dragScroll`);
+				break;
+			case 6:
+				navigate(`/mswTest`);
 				break;
 		}
 	};

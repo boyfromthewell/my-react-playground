@@ -7,6 +7,8 @@ import ForwardRef from "./pages/forwardRef";
 import Portal from "./pages/portal";
 import ReactQuery from "./pages/reactQuery";
 import MobX from "./pages/mobX";
+import DragScroll from "./pages/dragScroll";
+import MswTest from "./pages/mswTest";
 
 function App() {
 	return (
@@ -20,6 +22,8 @@ function App() {
 					<Route path="/reactQuery" element={<ReactQuery />} />
 					<Route path="/portal" element={<Portal />} />
 					<Route path="/mobX" element={<MobX />} />
+					<Route path="/dragScroll" element={<DragScroll />} />
+					<Route path="/mswTest" element={<MswTest />} />
 				</Routes>
 			</BrowserRouter>
 		</>
