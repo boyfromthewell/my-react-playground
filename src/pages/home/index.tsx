@@ -39,6 +39,7 @@ const Home = () => {
 	return (
 		<HomeContainer>
 			<PageHeader>React-playground</PageHeader>
+			update test
 			<ContentsSection>
 				{categorys.map(({ id, value }) => (
 					<Category key={`${id}${value}`} onClick={() => goToCategory(id)}>
