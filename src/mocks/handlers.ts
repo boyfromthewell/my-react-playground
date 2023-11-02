@@ -19,7 +19,7 @@ const posts = [
 ];
 
 export const handlers = [
-	rest.get("/posts", async (req, res, ctx) => {
+	rest.get("/posts", async (_req, res, ctx) => {
 		return res(ctx.json(posts));
 	}),
 
