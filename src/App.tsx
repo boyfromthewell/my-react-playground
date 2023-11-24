@@ -8,6 +8,7 @@ import ReactQuery from "./pages/reactQuery";
 import MobX from "./pages/mobX";
 import MswTest from "./pages/mswTest";
 import Scroll from "./pages/Scroll";
+import Playground from "./pages/playground";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 					<Route path="/mobX" element={<MobX />} />
 					<Route path="/dragScroll" element={<Scroll />} />
 					<Route path="/mswTest" element={<MswTest />} />
+					<Route path="/playground" element={<Playground />} />
 				</Routes>
 			</BrowserRouter>
 		</>

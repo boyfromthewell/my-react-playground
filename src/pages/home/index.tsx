@@ -9,6 +9,7 @@ const Home = () => {
 		{ id: 4, value: "MobX" },
 		{ id: 5, value: "Drag Scroll" },
 		{ id: 6, value: "Msw Test" },
+		{ id: 7, value: "playground" },
 	];
 
 	const navigate = useNavigate();
@@ -32,6 +33,9 @@ const Home = () => {
 				break;
 			case 6:
 				navigate(`/mswTest`);
+				break;
+			case 7:
+				navigate(`/playground`);
 				break;
 		}
 	};
